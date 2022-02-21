@@ -1,23 +1,21 @@
 <template>
-    <div class="w-full h-screen ">
-        <div class="relative inline-block w-1/4">
+    <div class="w-full h-screen min-h-screen max-h-screen flex flex-row">
+        <div class="w-[420px] h-full">
             <SideBar/>
         </div>
-        <div class="relative inline-block w-3/4 bg-gray-200">
-            sdfafsafasdf
+        <div class="flex-1 h-full">
+            <div class="p-4">
+            </div>
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
 import SideBar from "@/Pages/Partials/SideBar/SideBar";
+import Switch from "@/Pages/Component/Switch";
+import {ref} from "vue";
 
-export default {
-    name: "Index",
-    components: {
-        SideBar
-    }
-}
+
 </script>
 
 <style scoped>

@@ -21,4 +21,26 @@ button, input, optgroup, select, textarea {
     line-height: 1.15;
     margin: 0;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 100vh;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
 </style>

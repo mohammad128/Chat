@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full w-full">
+    <div class="h-full">
         <ChatList :data="data"/>
     </div>
 </template>
@@ -13,7 +13,7 @@ const data = reactive([
         'name': 'mohammad',
         'profile_photo_url': '/uploads/avatars/1.jpeg',
         'last_message': {
-            message: 'This is last message',
+            message: 'This is last messageThis is last messageThis is last messageThis is last message',
             time: '06:43',
         },
         'unread_message_count': 300,

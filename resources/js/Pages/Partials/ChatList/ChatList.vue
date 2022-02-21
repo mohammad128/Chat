@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full overflow-y-auto">
+    <div>
         <chat-list-item v-for="(item, index) in data" :key="index" :data="item"/>
     </div>
 </template>

@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
     content: [
@@ -14,8 +15,22 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'chatListActiveBg': '#3390ec'
+            }
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/line-clamp'),
+        require('tw-elements/dist/plugin'),
+
+        plugin(function({ addVariant }) {
+            addVariant('activeItem', '.active'),
+            addVariant('group-has-active', ':merge(.active) &')
+        })
+    ],
 };

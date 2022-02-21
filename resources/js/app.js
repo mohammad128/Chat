@@ -4,9 +4,12 @@ import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import RootLayout from "@/Layouts/RootLayout";
-import mdiVue from 'mdi-vue/v3'
-import * as mdijs from '@mdi/js'
-import VWave from 'v-wave'
+import mdiVue from 'mdi-vue/v3';
+import * as mdijs from '@mdi/js';
+import VWave from 'v-wave';
+import Popper from "vue3-popper";
+import 'vue-transitions-css';
+
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 createInertiaApp({
@@ -23,6 +26,7 @@ createInertiaApp({
                 icons: mdijs
             })
             .use(VWave)
+            .component("Popper", Popper)
             .mixin({ methods: { route } })
             .mount(el);
     },

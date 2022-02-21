@@ -1,12 +1,10 @@
 <template>
-    <div class="sideBar flex flex-col h-screen border-r-2 ">
+    <div class="sideBar flex flex-col h-full border-r-2 border-gray-200 ">
         <div class="sidebarHeader">
             <SideBarHeader/>
         </div>
-        <div class="sideBarContent flex-1 p-2 h-full">
-            <div class="h-full">
-                <SidebarContent/>
-            </div>
+        <div class="sideBarContent flex-1 p-2 overflow-y-auto">
+            <SidebarContent/>
         </div>
     </div>
 </template>

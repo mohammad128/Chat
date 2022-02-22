@@ -8,9 +8,17 @@
                     <mdicon name="menu" />
                 </button>
                 <template #content="{ close }">
-                    <transition name="bounce">
+                    <transition name="scale-from-top-left">
                         <div class="pl-4" v-show="showMenu">
-                            <Menu />
+                            <div class="w-72">
+                                <Menu :data="menuItems" >
+                                    <template #footer>
+                                        <div class="bg-gray-100 p-2.5 flex flex-row justify-center">
+                                            <span class="text-gray-500 text-sm">LaraGram v 1.1.1</span>
+                                        </div>
+                                    </template>
+                                </Menu>
+                            </div>
                         </div>
                     </transition>
                 </template>
@@ -36,25 +44,99 @@ watch(search, function (newVal, oldVal) {
 })
 
 
+
+let menuItems = reactive([
+    {
+        'type': 'button',
+        'id': 1,
+        'icon': 'bookmark-outline',
+        'text': 'Saved Messages',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'type': 'button',
+        'id': 2,
+        'icon': 'account-outline',
+        'text': 'Contact',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'type': 'button',
+        'id': 3,
+        'icon': 'cog-outline',
+        'text': 'Settings',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'id': 4,
+        'type': 'switch',
+        'active': true,
+        'icon': 'weather-night',
+        'text': 'Dark Mode',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'type': 'button',
+        'id': 3,
+        'icon': 'bug-outline',
+        'text': 'Report Bug',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'type': 'button',
+        'id': 3,
+        'icon': 'github',
+        'text': 'Github',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'type': 'button',
+        'id': 3,
+        'icon': 'information-outline',
+        'text': 'About',
+        'textColor': '#111827',
+        'iconColor': '#4b5563',
+        action: function () {
+            alert('Locout')
+        }
+    },
+    {
+        'type': 'button',
+        'id': 3,
+        'icon': 'logout',
+        'text': 'Logout',
+        'textColor': '#dc2626',
+        'iconColor': '#ef4444',
+        action: function () {
+            alert('Locout')
+        }
+    },
+])
 </script>
 
 <style scoped>
-.bounce-enter-active {
-    animation: bounce-in 0.2s ease-in-out;
-}
-.bounce-leave-active {
-    animation: bounce-in 0.2s ease-in-out reverse;
-}
-@keyframes bounce-in {
-    0% {
-        transform-origin: top left;
-        opacity: .5;
-        transform: scale(.5);
-    }
-    100% {
-        opacity: 1;
-        transform-origin: top left;
-        transform: scale(1);
-    }
-}
 </style>

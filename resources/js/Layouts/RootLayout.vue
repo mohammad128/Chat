@@ -6,7 +6,12 @@
 
 <script>
 export default {
-    name: "RootLayout"
+    name: "RootLayout",
+    mounted() {
+        document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        });
+    }
 }
 </script>
 

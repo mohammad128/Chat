@@ -2,13 +2,13 @@
     <div v-if="data"
          class="group flex flex-row w-full gap-2 p-2 rounded-lg hover:bg-gray-100 cursor-pointer select-none
          activeItem:bg-chatListActiveBg hover:activeItem:bg-chatListActiveBg"
-         :class="{'active': activeItem}"
+         :class="{'active': active}"
          @click="itemClicked" >
 
         <Avatar class="grow grow-0" :src="data.profile_photo_url"/>
         <div class="flex flex-col flex-1 justify-center">
             <div class="flex flex-row justify-between">
-                <span class="font-bold text-black flex-1 group-has-active:text-white">{{data.name}}</span>
+                <span class="font-semibold text-black flex-1 group-has-active:text-white">{{data.name}}</span>
                 <span class="text-xs text-gray-400 group-has-active:text-white">{{data.last_message.time}}</span>
             </div>
             <div class="flex flex-row">
@@ -19,23 +19,42 @@
     </div>
 </template>
 
-<script setup>
+<script>
 import Avatar from "@/Pages/Component/Avatar";
-import {ref} from "vue";
+import ContextMenu from "@/Pages/Component/ContextMenu";
 
-defineProps({
-    data: {
-        type: Object,
-        default: null
+export default  {
+    components: {
+        ContextMenu,
+        Avatar
+    },
+    emits: [
+        'clickOnItem',
+    ],
+    inject: [
+        'chatListOnItemClicked'
+    ],
+    props: {
+        data: {
+            type: Object,
+            default: null
+        },
+        active: {
+            type: Boolean,
+            default: false
+        }
+    },
+    data() {
+        return {
+        }
+    },
+    methods: {
+        itemClicked() {
+            this.chatListOnItemClicked(this.data);
+            this.$emit('clickOnItem', this.data);
+        },
     }
-})
-
-let activeItem = ref(false);
-
-function itemClicked() {
-    activeItem.value = true;
 }
-
 </script>
 
 <style scoped>

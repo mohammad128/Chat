@@ -3,10 +3,8 @@
         <div class="w-[420px] h-full">
             <SideBar/>
         </div>
-        <div class="flex-1 h-full bg-cover " style="background-image: url('/uploads/bg.jpeg')">
-            <div class="w-full h-full p-4">
-
-            </div>
+        <div class="flex-1 h-full w-full bg-cover " style="background-image: url('/uploads/bg.jpeg')">
+            <MessageContent/>
         </div>
     </div>
 </template>
@@ -14,9 +12,11 @@
 <script >
 import SideBar from "@/Pages/Partials/SideBar/SideBar";
 import Switch from "@/Pages/Component/Switch";
+import MessageContent from "@/Pages/Partials/MessageContent/MessageContent";
 
 export default {
     components: {
+        MessageContent,
         SideBar,
         Switch,
     },

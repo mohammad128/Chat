@@ -31,6 +31,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 });
 
+Route::get('/test', function () {
+    return  Inertia::render('Test');
+});
+
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //    return Inertia::render('Dashboard');
 //})->name('dashboard');

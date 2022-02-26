@@ -32,110 +32,29 @@
     </div>
 </template>
 
-<script setup>
-import TextInput from "@/Pages/Component/TextInput";
-import {reactive, ref, watch} from "vue";
+<script >
+
 import Menu from "@/Pages/Partials/SideBar/Components/Menu/Menu";
+import TextInput from "@/Pages/Component/TextInput";
+export  default  {
+    components: {TextInput, Menu},
+    props: {
+        menuItems: Array
+    },
+    data() {
+        return {
+            showMenu: false,
+            search: '',
+        }
+    },
+    watch: {
+        search: function (newVal, oldVal) {
+            console.log('search', newVal);
+        }
+    }
+}
 
-let showMenu = ref(false);
-const search = ref('');
-watch(search, function (newVal, oldVal) {
-    console.log('search', newVal);
-})
 
-
-
-let menuItems = reactive([
-    {
-        'type': 'button',
-        'id': 1,
-        'icon': 'bookmark-outline',
-        'text': 'Saved Messages',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'type': 'button',
-        'id': 2,
-        'icon': 'account-outline',
-        'text': 'Contact',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'type': 'button',
-        'id': 3,
-        'icon': 'cog-outline',
-        'text': 'Settings',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'id': 4,
-        'type': 'switch',
-        'active': true,
-        'icon': 'weather-night',
-        'text': 'Dark Mode',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'type': 'button',
-        'id': 3,
-        'icon': 'bug-outline',
-        'text': 'Report Bug',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'type': 'button',
-        'id': 3,
-        'icon': 'github',
-        'text': 'Github',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'type': 'button',
-        'id': 3,
-        'icon': 'information-outline',
-        'text': 'About',
-        'textColor': '#111827',
-        'iconColor': '#4b5563',
-        action: function () {
-            alert('Locout')
-        }
-    },
-    {
-        'type': 'button',
-        'id': 3,
-        'icon': 'logout',
-        'text': 'Logout',
-        'textColor': '#dc2626',
-        'iconColor': '#ef4444',
-        action: function () {
-            alert('Locout')
-        }
-    },
-])
 </script>
 
 <style scoped>

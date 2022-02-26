@@ -25,6 +25,7 @@ createInertiaApp({
             .use(mdiVue, {
                 icons: mdijs
             })
+            .use(VueAgile)
             .use(VWave)
             .directive('click-outside', {
                 beforeMount(el, binding, vnode) {

@@ -26,7 +26,6 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
-        require('tw-elements/dist/plugin'),
 
         plugin(function({ addVariant }) {
             addVariant('activeItem', '.active'),

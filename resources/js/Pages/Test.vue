@@ -58,31 +58,20 @@
         </div>
 
         <div class="flex-1 flex flex-col gap-8">
-            <carousel :items-to-show="1.5">
-                <slide v-for="slide in 10" :key="slide">
-                    <a
-                        data-fancybox="gallery"
-                        href="https://lipsum.app/id/61/1600x1200"
-                    >
-                        <img class="rounded" src="https://lipsum.app/id/61/200x150" />
-                    </a>
-                </slide>
-
-                <template #addons>
-                    <navigation />
-                    <pagination />
-                </template>
-            </carousel>
         </div>
     </div>
 
-    <h1 class="mt-12 mb-8 px-6 text-center text-lg md:text-2xl font-semibold">
-        Place caption at the top
-    </h1>
-    <div class="carousel">
-        <div class="carousel__slide">1</div>
-        <div class="carousel__slide">2</div>
-        <div class="carousel__slide">3</div>
+    <div class="w-[300px]">
+        <vue-carousel :data="data"></vue-carousel>
+
+        <agile>
+            <div class="slide" v-for="n in 6" :key="n" :class="`slide--${n}`">
+                <h3>{{ n }}</h3>
+            </div>
+            <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
+            <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
+        </agile>
+
     </div>
     <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
         <a
@@ -105,26 +94,55 @@
 <script>
 import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
 import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-// import { Fancybox } from "@fancyapps/ui";
-// or
+
 import { Fancybox } from "@fancyapps/ui/src/Fancybox/Fancybox.js";
 import "@fancyapps/ui/dist/fancybox.css";
+import { VueAgile } from 'vue-agile'
 
 export default {
     name: "Test",
     components: {
         PageSwitcherItem, PageSwitcher,
-        Carousel,
-        Slide,
-        Pagination,
-        Navigation,
+        agile: VueAgile
     },
     data() {
         return {
             activePage: '',
             activePageSearch: '',
+            userImages: [
+                'https://lipsum.app/id/61/1600x1200',
+                'https://lipsum.app/id/62/1600x1200',
+            ],
+
+            data: [
+                `<div class="example-slide">
+                    <a
+                        data-fancybox="gallery"
+                        data-caption="Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in"
+                        href="https://lipsum.app/id/61/1600x1200"
+                    >
+                        <img class="rounded" src="https://lipsum.app/id/61/200x150" />
+                    </a>
+                </div>`,
+                `<div class="example-slide">
+                    <a
+                        data-fancybox="gallery"
+                        data-caption="Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in"
+                        href="https://lipsum.app/id/62/1600x1200"
+                    >
+                        <img class="rounded" src="https://lipsum.app/id/62/200x150" />
+                    </a>
+                </div>`,
+                `<div class="example-slide">
+                    <a
+                        data-fancybox="gallery"
+                        data-caption="Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in"
+                        href="https://lipsum.app/id/63/1600x1200"
+                    >
+                        <img class="rounded" src="https://lipsum.app/id/63/200x150" />
+                    </a>
+                </div>`,
+            ],
         }
     },
     methods:{
@@ -134,32 +152,84 @@ export default {
     },
     mounted() {
         Fancybox.bind("[data-fancybox]", {
-            // Your options go here
         });
     }
 }
 </script>
 
-<style scoped>
-.carousel__item {
-    min-height: 200px;
+<style >
+
+.agile {
     width: 100%;
-    background-color: var(--vc-clr-primary);
-    color:  var(--vc-clr-white);
-    font-size: 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
+}
+.agile__actions {
+    margin-top: 20px;
+}
+.agile__nav-button {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 24px;
+    transition-duration: 0.3s;
+}
+.agile__nav-button:hover {
+    color: #888;
+}
+.agile__dot {
+    margin: 0 10px;
+}
+.agile__dot button {
+    background-color: #eee;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 10px;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    transition-duration: 0.3s;
+    width: 10px;
+}
+.agile__dot--current button, .agile__dot:hover button {
+    background-color: #888;
+}
+
+.slide {
     align-items: center;
+    color: #fff;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+}
+.slide h3 {
+    font-size: 32px;
+    font-weight: 300;
 }
 
-.carousel__slide {
-    padding: 10px;
+.slide--1 {
+    background-color: #f1c40f;
 }
 
-.carousel__prev,
-.carousel__next {
-    box-sizing: content-box;
-    border: 5px solid white;
+.slide--2 {
+    background-color: #e67e22;
+}
+
+.slide--3 {
+    background-color: #e74c3c;
+}
+
+.slide--4 {
+    background-color: #9b59b6;
+}
+
+.slide--5 {
+    background-color: #3498db;
+}
+
+.slide--6 {
+    background-color: #2ecc71;
 }
 </style>

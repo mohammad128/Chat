@@ -10,6 +10,9 @@ import VWave from 'v-wave';
 import Popper from "vue3-popper";
 import 'vue-transitions-css';
 
+import VueCarousel from '@chenfengyuan/vue-carousel';
+
+import globalMixin from "@/mixin";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 createInertiaApp({
@@ -25,8 +28,9 @@ createInertiaApp({
             .use(mdiVue, {
                 icons: mdijs
             })
-            .use(VueAgile)
+            .component(VueCarousel.name, VueCarousel)
             .use(VWave)
+            .mixin(globalMixin)
             .directive('click-outside', {
                 beforeMount(el, binding, vnode) {
                     el.clickOutsideEvent = function(event) {

@@ -45,7 +45,6 @@ export default {
             if(this.activePage === page.name)
                 page.name = true;
             this.pages.push( page );
-            console.log(this.pages);
         }
     },
     watch: {

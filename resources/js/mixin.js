@@ -1,6 +1,10 @@
 const globalMixin = {
     methods: {
         makeToast(msg) {
+            let oldToasts = document.getElementsByClassName('toast');
+            for (let i=0; i<oldToasts.length; i++) {
+                oldToasts[i].remove();
+            }
             var elem = document.createElement('div');
             elem.innerHTML = msg;
             elem.classList.add('toast');

@@ -14,9 +14,9 @@
     border-radius: 10px;
     -webkit-animation: fade-in-opacity-fade-out-opacity 3s linear forwards;
     animation: fade-in-opacity-fade-out-opacity 3s linear forwards;
-    z-index: 5;
     max-width: 22.5rem;
     transition: all 1s;
+    z-index: 99999999999;
 }
 @keyframes fade-in-opacity-fade-out-opacity {
     0% {
@@ -52,6 +52,25 @@
     100% {
         opacity: 1;
         transform-origin: top left;
+        transform: scale(1);
+    }
+}
+
+.scale-from-top-right-enter-active {
+    animation: scale-from-top-right 0.2s ease-in-out;
+}
+.scale-from-top-right-leave-active {
+    animation: scale-from-top-right 0.2s ease-in-out reverse;
+}
+@keyframes scale-from-top-right {
+    0% {
+        transform-origin: top right;
+        opacity: .5;
+        transform: scale(.5);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: top right;
         transform: scale(1);
     }
 }

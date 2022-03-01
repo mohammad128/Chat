@@ -7,6 +7,11 @@
                 <PageSwitcherItem name="settings">
                     <Settings @close="sidebarPage=''"/>
                 </PageSwitcherItem>
+                <PageSwitcherItem name="contact">
+                    <div class="absolute left-0 right-0 top-0 bottom-0 w-full h-full bg-white">
+                        Contact
+                    </div>
+                </PageSwitcherItem>
             </template>
         </PageSwitcher>
     </div>
@@ -14,7 +19,7 @@
 
 <script>
 import SideBarContainer from "@/Pages/Partials/SideBar/SideBarContainer";
-import Settings from "@/Pages/Partials/SideBar/Settings";
+import Settings from "@/Pages/Partials/SideBar/Settings/Settings";
 import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
 import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
 
@@ -43,9 +48,7 @@ export default {
                     'text': 'Contact',
                     'textColor': '#111827',
                     'iconColor': '#4b5563',
-                    action: function () {
-                        alert('Locout')
-                    }
+                    action: () => this.sidebarPage = 'contact'
                 },
                 {
                     'type': 'button',

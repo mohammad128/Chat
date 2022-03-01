@@ -34,7 +34,12 @@
                     </div>
 
                 </div>
-                <div class="messages h-full flex-1 ">
+                <div class="messages h-full flex-1 relative">
+                    <div class="absolute top-8 right-8 bottom-8 left-8  ">
+                        <div class="w-full h-full bg-red-100 overflow-y-auto opacity-50">
+
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -58,9 +63,11 @@
 import Avatar from "@/Pages/Component/Avatar";
 import Menu from "@/Pages/Partials/SideBar/Components/Menu/Menu";
 import AsideSwitcher from "@/Pages/Component/AsideSwitcher";
+import TextInput from "@/Pages/Component/TextInput";
+
 export default {
     name: "MessageContent",
-    components: {AsideSwitcher, Menu, Avatar},
+    components: {TextInput, AsideSwitcher, Menu, Avatar},
     data() {
         return {
             aside: '',
@@ -133,6 +140,35 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 
+.example {
+    background: #ffffff;
+    margin: 20px;
+    border-color: #e7e7e7;
+    padding: 40px;
+}
+
+.example pre {
+    background: #f9f9f9;
+    padding: 18px 6px;
+    overflow-x: scroll;
+    margin-top: 10px;
+}
+
+.output {
+    font-family: Courier, Courier New, Lucida Console, Monaco, Consolas;
+    background: #000000;
+    color: #ffffff;
+    padding: 20px;
+    margin-bottom: 50px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.slider-vertical {
+    margin: -30px auto 0;
+}
 </style>

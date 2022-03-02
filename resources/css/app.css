@@ -209,5 +209,25 @@
 }
 
 
+.translate-from-bottom-enter-active {
+    overflow: hidden !important;
+    animation: translate-from-bottom .2s;
+}
+.translate-from-bottom-leave-active {
+    overflow-x: hidden !important;
+    animation: translate-from-bottom .2s reverse;
+}
+@keyframes translate-from-bottom {
+    0% {
+        transform: translateY(100%);
+        /*opacity: .5;*/
+    }
+    100% {
+        transform: translateY(0);
+        /*opacity: 1;*/
+    }
+}
+
+
 
 

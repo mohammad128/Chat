@@ -8,9 +8,7 @@
                     <Settings @close="sidebarPage=''"/>
                 </PageSwitcherItem>
                 <PageSwitcherItem name="contact">
-                    <div class="absolute left-0 right-0 top-0 bottom-0 w-full h-full bg-white">
-                        Contact
-                    </div>
+                    <Contact @close="sidebarPage=''" @selectContact="contactCallbackFunction" :multi-select="mutliSelectContact"/>
                 </PageSwitcherItem>
             </template>
         </PageSwitcher>
@@ -22,13 +20,16 @@ import SideBarContainer from "@/Pages/Partials/SideBar/SideBarContainer";
 import Settings from "@/Pages/Partials/SideBar/Settings/Settings";
 import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
 import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
+import Contact from "@/Pages/Partials/SideBar/Contact";
 
 export default {
     name: "SideBar",
-    components: {PageSwitcherItem, PageSwitcher, Settings, SideBarContainer},
+    components: {Contact, PageSwitcherItem, PageSwitcher, Settings, SideBarContainer},
     data() {
         return{
+            contactCallbackFunction: null,
             sidebarPage: '',
+            mutliSelectContact: false,
             menuItems: [
                 {
                     'type': 'button',
@@ -48,7 +49,11 @@ export default {
                     'text': 'Contact',
                     'textColor': '#111827',
                     'iconColor': '#4b5563',
-                    action: () => this.sidebarPage = 'contact'
+                    action: () => {
+                        this.mutliSelectContact = false;
+                        this.contactCallbackFunction = this.selectContact;
+                        this.sidebarPage = 'contact'
+                    }
                 },
                 {
                     'type': 'button',
@@ -133,8 +138,10 @@ export default {
                     'icon': 'account-group-outline',
                     'text': 'New Group',
                     'textColor': '#000',
-                    action: function () {
-                        alert('Group')
+                    action: () => {
+                        this.mutliSelectContact = true;
+                        this.contactCallbackFunction = this.selectedContactForCreateGroup;
+                        this.sidebarPage = 'contact'
                     }
                 },
                 {
@@ -150,8 +157,18 @@ export default {
             ],
         }
     },
+    methods: {
+        selectContact(e) {
+            alert('selectContact');
+            console.log(e);
+        },
+        selectedContactForCreateGroup(e) {
+            alert('selectedContactForCreateGroup');
+            console.log(e);
+        }
+    },
     mounted() {
-        this.sidebarPage = 'settings';
+        this.sidebarPage = '';
     }
 
 }

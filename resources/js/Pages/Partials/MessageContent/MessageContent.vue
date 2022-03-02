@@ -38,13 +38,6 @@
                     <div class="absolute top-8 right-8 bottom-8 left-8  ">
                         <div class="w-full h-full overflow-y-auto ">
 
-                            <div class="w-1/2">
-                                <CheckBox/>
-                                <br>
-                                <Radio v-model="radioValue" name="radio1" value="sendByEnter" label="Radio 1"/>
-                                <Radio v-model="radioValue" name="radio1" value="sendByCtrlEnter" label="Radio 2"/>
-                                {{radioValue}}
-                            </div>
 
                         </div>
                     </div>

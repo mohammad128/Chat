@@ -6,6 +6,7 @@
         <div class="sideBarContent flex-1 px-2 overflow-y-auto">
             <SidebarContent/>
         </div>
+
         <div v-wave class="w-14 h-14 ring-2 ring-gray-200 cursor-pointer  rounded-full text-white bg-chatListActiveBg absolute bottom-4 right-4 flex flex-col items-center justify-center">
             <div class="relative">
                 <Popper arrow offsetDistance="4"

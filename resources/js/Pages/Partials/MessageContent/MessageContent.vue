@@ -36,7 +36,15 @@
                 </div>
                 <div class="messages h-full flex-1 relative">
                     <div class="absolute top-8 right-8 bottom-8 left-8  ">
-                        <div class="w-full h-full bg-red-100 overflow-y-auto opacity-50">
+                        <div class="w-full h-full overflow-y-auto ">
+
+                            <div class="w-1/2">
+                                <CheckBox/>
+                                <br>
+                                <Radio v-model="radioValue" name="radio1" value="sendByEnter" label="Radio 1"/>
+                                <Radio v-model="radioValue" name="radio1" value="sendByCtrlEnter" label="Radio 2"/>
+                                {{radioValue}}
+                            </div>
 
                         </div>
                     </div>
@@ -64,12 +72,17 @@ import Avatar from "@/Pages/Component/Avatar";
 import Menu from "@/Pages/Partials/SideBar/Components/Menu/Menu";
 import AsideSwitcher from "@/Pages/Component/AsideSwitcher";
 import TextInput from "@/Pages/Component/TextInput";
+import CheckBox from "@/Pages/Component/CheckBox";
+import RangeSlider from "@/Pages/Component/RangeSlider";
+import Radio from "@/Pages/Component/Radio";
 
 export default {
     name: "MessageContent",
-    components: {TextInput, AsideSwitcher, Menu, Avatar},
+    components: {Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
     data() {
         return {
+            radioValue: '',
+
             aside: '',
             showMenu: false,
             menuItems: [

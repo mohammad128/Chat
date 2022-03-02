@@ -1,11 +1,11 @@
 <template>
-    <label class="inline-block">
+    <label class="inline-block cursor-pointer">
         <label class="" style="display: flex;justify-content: center;justify-items: center;width: auto;">
-            <label class="wrapper flex items-center">
+            <label ref="cbLabel" class="wrapper flex items-center">
                 <input class="checkbox" type="checkbox" v-model="checked" />
-                <span class="checkmark"></span>
+                <span ref="cbCheckmark" class="checkmark"></span>
             </label>
-            <span v-if="label" class="pl-2">{{ label }}</span>
+            <span v-if="label" class="pl-2 cursor-pointer">{{ label }}</span>
         </label>
     </label>
 </template>
@@ -28,6 +28,22 @@ export default {
                 return this.modelValue;
             },
             set(val) {
+                // gsap.from(
+                //     this.$refs.cbLabel,
+                //     {
+                //         ease: "bounce.out",
+                //         duration: 0.3,
+                //         scale: 0.3,
+                //     }
+                // );
+                // gsap.to(
+                //     this.$refs.cbLabel,
+                //     {
+                //         ease: "bounce.out",
+                //         duration: 0.3,
+                //         scale: 1,
+                //     }
+                // );
                 this.$emit('update:modelValue', val);
             }
         }
@@ -107,11 +123,19 @@ export default {
 
 @keyframes checked {
     0%{
-        -webkit-transform: rotate(0) scale(0);
-        -ms-transform: rotate(0) scale(0);
-        transform: rotate(0) scale(0);
+        /*-webkit-transform: rotate(0) scale(0);*/
+        /*-ms-transform: rotate(0) scale(0);*/
+        /*transform: rotate(0) scale(0);*/
+
+        -webkit-transform: rotate(45deg) scale(0);
+        -ms-transform: rotate(45deg) scale(0);
+        transform: rotate(45deg) scale(0);
     }
     100%{
+        /*-webkit-transform: rotate(45deg) scale(1);*/
+        /*-ms-transform: rotate(45deg) scale(1);*/
+        /*transform: rotate(45deg) scale(1);*/
+
         -webkit-transform: rotate(45deg) scale(1);
         -ms-transform: rotate(45deg) scale(1);
         transform: rotate(45deg) scale(1);

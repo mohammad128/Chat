@@ -25,11 +25,11 @@
             <div class="theme2 w-full relative"
                  :class="{'notEmpty': value}"
             >
-                <input type="text" v-model="value"
+                <input ref="input" type="text" v-model="value"
                        pattern="\S+.*" required
                        class="w-full leading-9 border-0 outline-0 rounded-lg ring-1 ring-gray-300 hover:ring-chatListActiveBg focus:ring-2  focus:ring-chatListActiveBg "
                 >
-                <span class="placeholder">{{placeholder}}</span>
+                <span @click="$refs.input.focus()" class="placeholder z-0">{{placeholder}}</span>
             </div>
         </template>
     </div>

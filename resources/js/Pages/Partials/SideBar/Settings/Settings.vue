@@ -224,7 +224,7 @@ export default {
     mounted() {
         Fancybox.bind("[data-fancybox]", {
         });
-        this.activePage = '';
+        this.activePage = 'general_settings';
     }
 }
 </script>

@@ -176,7 +176,7 @@
 }
 .zoom-in-leave-active {
     overflow-x: hidden !important;
-    animation: zoom-in .2s reverse;
+    animation: zoom-in .1s reverse;
 }
 @keyframes zoom-in {
     0% {
@@ -228,6 +228,38 @@
     }
 }
 
+
+.rotate-fade-enter-active {
+    overflow: hidden !important;
+    animation: rotate-fade 1s;
+}
+.rotate-fade-leave-active {
+    overflow-x: hidden !important;
+    animation: rotate-fade 1.2s reverse;
+}
+@keyframes rotate-fade {
+    0% {
+        transform: rotate(-90deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.rotate-left {
+    animation: rotate-left 0.25s ease-out;
+}
+.rotate-right {
+    animation: rotate-left 0.25s reverse ease-out;
+}
+@keyframes rotate-left {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
+}
 
 
 

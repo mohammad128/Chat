@@ -1,13 +1,21 @@
 <template>
     <div class="w-full">
         <div class="flex flex-row pl-4 pr-6 py-2 gap-2">
+
             <Popper arrow offsetDistance="4"
                     @open:popper="showMenu=true"
                     @close:popper="showMenu=false" >
-                <button v-wave class="bg-white rounded-full p-2 text-gray-500 hover:bg-gray-100">
+
+                <button v-if="!searchFocus" :class="{'rotate-left': !searchFocus}"  v-wave class="bg-white rounded-full p-2 text-gray-500 hover:bg-gray-100">
                     <mdicon name="menu" />
                 </button>
-                <template #content="{ close }">
+                <button v-if="searchFocus" :class="{'rotate-right': searchFocus}" v-wave class="bg-white rounded-full p-2 text-gray-500 hover:bg-gray-100"
+                        @click.stop="$emit('closeSearchBox');searchFocus=false;search=''"
+                >
+                    <mdicon name="arrow-left" />
+                </button>
+
+                <template v-if="!searchFocus" #content="{ close }">
                     <transition name="scale-from-top-left">
                         <div class="pl-4" v-show="showMenu">
                             <div class="w-72">
@@ -23,7 +31,8 @@
                     </transition>
                 </template>
             </Popper>
-            <TextInput v-model="search" class="flex-1" type="search">
+
+            <TextInput v-model="search" class="flex-1" type="search" @focusin="$emit('openSearchBox'); searchFocus=true" >
                 <template #icon>
                     <mdicon name="magnify" />
                 </template>
@@ -45,11 +54,12 @@ export  default  {
         return {
             showMenu: false,
             search: '',
+            searchFocus: false,
         }
     },
     watch: {
         search: function (newVal, oldVal) {
-            console.log('search', newVal);
+            this.$emit('searchInput', newVal);
         }
     }
 }

@@ -1,10 +1,19 @@
 <template>
     <div class="sideBar relative flex flex-col h-full border-r-2 border-gray-200 ">
         <div class="sidebarHeader">
-            <SideBarHeader :menu-items="menuItems"/>
+            <SideBarHeader :menu-items="menuItems" @openSearchBox="activePage='search'" @closeSearchBox="activePage=''"  @searchInput="(e)=>search=e"/>
         </div>
-        <div class="sideBarContent flex-1 px-2 overflow-y-auto">
-            <SidebarContent/>
+        <div class="sideBarContent flex-1">
+            <PageSwitcher v-model="activePage" :animations="{main: 'zoom-out', page: 'zoom-in'}">
+                <SidebarContent/>
+                <template #items>
+                    <PageSwitcherItem name="search">
+                        <div class="h-full w-full bg-white">
+                            Search Content {{search}}
+                        </div>
+                    </PageSwitcherItem>
+                </template>
+            </PageSwitcher>
         </div>
 
         <div v-wave class="w-14 h-14 ring-2 ring-gray-200 cursor-pointer  rounded-full text-white bg-chatListActiveBg absolute bottom-4 right-4 flex flex-col items-center justify-center">
@@ -40,9 +49,13 @@
 import SideBarHeader from "@/Pages/Partials/SideBar/SideBarHeader";
 import SidebarContent from "@/Pages/Partials/SideBar/SidebarContent";
 import Menu from "@/Pages/Partials/SideBar/Components/Menu/Menu";
+import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
+import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
 
 export default  {
     components: {
+        PageSwitcherItem,
+        PageSwitcher,
         SideBarHeader,
         SidebarContent,
         Menu
@@ -53,6 +66,8 @@ export default  {
     },
     data() {
         return {
+            activePage: '',
+            search: '',
             newMenuShow: false,
         }
     }

@@ -58,37 +58,62 @@
         </div>
 
         <div class="flex-1 flex flex-col gap-8">
+            <div class="w-full h-full bg-red-100">
+
+                <div class="max-w-md mx-auto mt-32 bg-white rounded-lg">
+                    <Tab >
+                        <TabItem title="New Item">
+                            This is New Item
+                        </TabItem>
+                        <TabItem title="Test" active>
+                            <div class="p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                            </div>
+                        </TabItem>
+                        <TabItem title="Tab 2" >
+                            <div class="p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                            </div>
+                        </TabItem>
+                        <TabItem title="Tab 3" >
+                            <div class="p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                            </div>
+                        </TabItem>
+                        <TabItem title="Tab 4" >
+                            <div class="p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                            </div>
+                        </TabItem>
+                        <TabItem title="Tab 5" >
+                            <div class="p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                            </div>
+                        </TabItem>
+                        <TabItem title="Tab 6" >
+                            <div class="p-4">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                            </div>
+                        </TabItem>
+                    </Tab>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <div class="w-[300px]">
-        <vue-carousel :data="data"></vue-carousel>
-
-        <agile>
-            <div class="slide" v-for="n in 6" :key="n" :class="`slide--${n}`">
-                <h3>{{ n }}</h3>
-            </div>
-            <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
-            <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
-        </agile>
-
-    </div>
-    <div class="flex flex-wrap gap-5 justify-center max-w-5xl mx-auto px-6">
-        <a
-            data-fancybox="gallery"
-            data-caption="Vestibulum lobortis ultricies ipsum, a maximus ligula dignissim in"
-            href="https://lipsum.app/id/61/1600x1200"
-        >
-            <img class="rounded" src="https://lipsum.app/id/61/200x150" />
-        </a>
-        <a
-            data-fancybox="gallery"
-            data-caption="Etiam at lobortis ligula"
-            href="https://lipsum.app/id/62/1600x1200"
-        >
-            <img class="rounded" src="https://lipsum.app/id/62/200x150" />
-        </a>
-    </div>
 </template>
 
 <script>
@@ -98,10 +123,14 @@ import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher
 import { Fancybox } from "@fancyapps/ui/src/Fancybox/Fancybox.js";
 import "@fancyapps/ui/dist/fancybox.css";
 import { VueAgile } from 'vue-agile'
+import Tab from "@/Pages/Component/Tab/Tab";
+import TabItem from "@/Pages/Component/Tab/TabItem";
 
 export default {
     name: "Test",
     components: {
+        TabItem,
+        Tab,
         PageSwitcherItem, PageSwitcher,
         agile: VueAgile
     },

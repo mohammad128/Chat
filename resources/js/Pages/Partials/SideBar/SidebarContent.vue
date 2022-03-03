@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full">
+    <div class="h-full  px-2 overflow-y-auto">
         <ChatList :data="chatList"/>
     </div>
 </template>

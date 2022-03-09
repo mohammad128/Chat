@@ -61,8 +61,8 @@
 </template>
 
 <script>
-import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
-import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
+import PageSwitcher from "@/Pages/Component/PageSwitcher/PageSwitcher";
+import PageSwitcherItem from "@/Pages/Component/PageSwitcher/PageSwitcherItem";
 import ActiveSessions from "@/Pages/Partials/SideBar/Settings/Pages/ActiveSessions";
 import TwoStepVerification from "@/Pages/Partials/SideBar/Settings/Pages/TwoStepVerification";
 import BlockedUsers from "@/Pages/Partials/SideBar/Settings/Pages/BlockedUsers";

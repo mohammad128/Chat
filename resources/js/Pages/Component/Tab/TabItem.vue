@@ -1,5 +1,5 @@
 <template>
-    <div ref="tabItem" class="item-content min-w-full w-full h-full flex-grow">
+    <div ref="tabItem" class="item-content min-w-full w-full h-full flex-grow  overflow-y-auto">
         <template v-if="$parent.lazyLoad">
             <slot v-if="show"/>
         </template>
@@ -29,9 +29,6 @@ export default {
         this.$parent.addItem( this );
     },
     watch: {
-        show: function(val) {
-            console.log(val)
-        }
     }
 }
 </script>

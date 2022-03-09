@@ -68,10 +68,12 @@ import TextInput from "@/Pages/Component/TextInput";
 import CheckBox from "@/Pages/Component/CheckBox";
 import RangeSlider from "@/Pages/Component/RangeSlider";
 import Radio from "@/Pages/Component/Radio";
+import Tab from "@/Pages/Component/Tab/Tab";
+import TabItem from "@/Pages/Component/Tab/TabItem";
 
 export default {
     name: "MessageContent",
-    components: {Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
+    components: {TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
     data() {
         return {
             radioValue: '',

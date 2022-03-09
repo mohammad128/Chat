@@ -9,7 +9,7 @@
                 <button v-if="!searchFocus" :class="{'rotate-left': !searchFocus}"  v-wave class="bg-white rounded-full p-2 text-gray-500 hover:bg-gray-100">
                     <mdicon name="menu" />
                 </button>
-                <button v-if="searchFocus" :class="{'rotate-right': searchFocus}" v-wave class="bg-white rounded-full p-2 text-gray-500 hover:bg-gray-100"
+                <button v-else-if="searchFocus" :class="{'rotate-right': searchFocus}" v-wave class="bg-white rounded-full p-2 text-gray-500 hover:bg-gray-100"
                         @click.stop="$emit('closeSearchBox');searchFocus=false;search=''"
                 >
                     <mdicon name="arrow-left" />
@@ -48,12 +48,26 @@ import TextInput from "@/Pages/Component/TextInput";
 export  default  {
     components: {TextInput, Menu},
     props: {
-        menuItems: Array
+        menuItems: Array,
+        modelValue: {
+            type: String,
+            default: ''
+        }
+    },
+    computed: {
+        search: {
+            get() {
+                return this.modelValue;
+            },
+            set(val) {
+                this.$emit('update:modelValue', val);
+            }
+        }
     },
     data() {
         return {
             showMenu: false,
-            search: '',
+            // search: '',
             searchFocus: false,
         }
     },

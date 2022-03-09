@@ -1,19 +1,19 @@
 <template>
-    <div class="relative tab w-full">
-        <div class="tab-header relative w-full  flex flex-row overflow-hidden" ref="tabHeader">
+    <div class="relative tab w-full rounded-lg">
+        <div class="tab-header px-2 relative w-full flex flex-row overflow-hidden sticky top-0 bg-white border-b border-b-gray-300" ref="tabHeader">
             <span v-for="(item, index) in items"
                   :ref="item.ref"
                   v-wave
                   :data-ref="item.ref"
                   @click="clickOnItem($event, item)"
-                  :class="{'text-chatListActiveBg': item.active}"
-                  class="tab-header-item shrink-0 cursor-pointer px-4 py-3 hover:bg-gray-200 rounded-lg"
+                  :class="{'text-chatListActiveBg': item.active, 'active-item-hover-bg': item.active}"
+                  class="relative text-gray-500 tab-header-item shrink-0 cursor-pointer px-4 py-2 hover:bg-gray-200 rounded-lg"
             >
                 {{ item.title }}
             </span>
             <div ref="line" class="line absolute bottom-0 left-0 h-1 rounded-lg w-0 bg-chatListActiveBg"></div>
         </div>
-        <div ref="tabsContainer" class="tabs-container flex flex-row overflow-x-hidden">
+        <div ref="tabsContainer" class="tabs-container flex flex-row overflow-x-hidden w-full h-full overflow-y-auto bg-white">
             <slot/>
         </div>
     </div>
@@ -43,7 +43,6 @@ export default {
             item.index = this.counter++;
             item.ref = "tabHeaderItem"+item.index;
             this.items.push(item);
-            console.log(item);
         },
         moveLineToElement( elm ) {
             let  left = elm.offsetLeft;
@@ -108,6 +107,10 @@ export default {
 }
 .line{
     transition: all .3s;
+}
+
+.active-item-hover-bg:hover {
+    background: rgba(51, 144, 236, 0.1);
 }
 
 </style>

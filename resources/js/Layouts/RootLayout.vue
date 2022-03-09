@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w-screen">
         <slot/>
     </div>
 </template>
@@ -47,5 +47,8 @@ button, input, optgroup, select, textarea {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #a0aec0;
+}
+*{
+    user-select: none;
 }
 </style>

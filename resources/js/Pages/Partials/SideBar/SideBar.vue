@@ -18,8 +18,8 @@
 <script>
 import SideBarContainer from "@/Pages/Partials/SideBar/SideBarContainer";
 import Settings from "@/Pages/Partials/SideBar/Settings/Settings";
-import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
-import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
+import PageSwitcher from "@/Pages/Component/PageSwitcher/PageSwitcher";
+import PageSwitcherItem from "@/Pages/Component/PageSwitcher/PageSwitcherItem";
 import Contact from "@/Pages/Partials/SideBar/Contact";
 
 export default {

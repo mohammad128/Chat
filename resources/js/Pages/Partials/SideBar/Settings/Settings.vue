@@ -101,8 +101,8 @@
 </template>
 
 <script>
-import PageSwitcherItem from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcherItem";
-import PageSwitcher from "@/Pages/Partials/SideBar/PageSwitcher/PageSwitcher";
+import PageSwitcherItem from "@/Pages/Component/PageSwitcher/PageSwitcherItem";
+import PageSwitcher from "@/Pages/Component/PageSwitcher/PageSwitcher";
 import { VueAgile } from 'vue-agile'
 import { Fancybox } from "@fancyapps/ui/src/Fancybox/Fancybox.js";
 import "@fancyapps/ui/dist/fancybox.css";

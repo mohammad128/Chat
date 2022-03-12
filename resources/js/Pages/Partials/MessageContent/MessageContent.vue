@@ -36,9 +36,16 @@
                 </div>
                 <div class="messages h-full flex-1 relative">
                     <div class="absolute top-8 right-8 bottom-8 left-8  ">
-                        <div class="w-full h-full overflow-y-auto ">
+                        <div class="w-full h-96 relative">
+                            <div class="absolute w-full h-full left-0 right-0 top-0 bottom-0 bg-blue-100">
 
+                                <Tab>
+                                    <TabItem title="Title 1" v-for="n in 10">
+                                        <p v-for="i in n">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quam quos ut. Asperiores cumque dicta ea, exercitationem expedita facilis id in laboriosam necessitatibus neque perspiciatis quos rem reprehenderit sequi sunt.</p>
+                                    </TabItem>
+                                </Tab>
 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,10 +77,11 @@ import RangeSlider from "@/Pages/Component/RangeSlider";
 import Radio from "@/Pages/Component/Radio";
 import Tab from "@/Pages/Component/Tab/Tab";
 import TabItem from "@/Pages/Component/Tab/TabItem";
+import Search from "@/Pages/Partials/Search/Search";
 
 export default {
     name: "MessageContent",
-    components: {TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
+    components: {Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
     data() {
         return {
             radioValue: '',

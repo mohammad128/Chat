@@ -1,6 +1,6 @@
 <template>
-    <div class="relative tab w-full rounded-lg">
-        <div class="tab-header px-2 relative w-full flex flex-row overflow-hidden sticky top-0 bg-white border-b border-b-gray-300" ref="tabHeader">
+    <div class="relative flex flex-col tab w-full h-full rounded-lg">
+        <div class="tab-header px-2 relative w-full flex flex-row overflow-hidden bg-white border-b border-b-gray-300" ref="tabHeader">
             <span v-for="(item, index) in items"
                   :ref="item.ref"
                   v-wave
@@ -13,7 +13,7 @@
             </span>
             <div ref="line" class="line absolute bottom-0 left-0 h-1 rounded-lg w-0 bg-chatListActiveBg"></div>
         </div>
-        <div ref="tabsContainer" class="tabs-container flex flex-row overflow-x-hidden w-full h-full overflow-y-auto bg-white">
+        <div ref="tabsContainer" class="flex-1 snap-mandatory snap-x relative tabs-container flex flex-row overflow-hidden h-full w-full">
             <slot/>
         </div>
     </div>

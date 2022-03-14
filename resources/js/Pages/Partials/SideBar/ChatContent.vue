@@ -38,8 +38,10 @@
 </template>
 
 <script>
+import SidebarContent from "@/Pages/Partials/SideBar/SidebarContent";
 export default {
     name: "ChatContent",
+    components: {SidebarContent},
     data() {
         return {
             newMenuShow: false,

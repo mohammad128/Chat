@@ -8,32 +8,7 @@
                 <Media/>
             </TabItem>
             <TabItem title="Links">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
+                <Links/>
             </TabItem>
             <TabItem title="Files">
                 <div class="p-4">
@@ -66,6 +41,7 @@ import Tab from "@/Pages/Component/Tab/Tab";
 import TabItem from "@/Pages/Component/Tab/TabItem";
 import Chats from "@/Pages/Partials/Search/Chats";
 import Media from "@/Pages/Partials/Search/Media";
+import Links from "@/Pages/Partials/Search/Links/Links";
 export default {
     name: "Search",
     props: {
@@ -84,7 +60,7 @@ export default {
             }
         }
     },
-    components: {Media, Chats, TabItem, Tab}
+    components: {Links, Media, Chats, TabItem, Tab}
 }
 </script>
 

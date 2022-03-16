@@ -11,12 +11,7 @@
                 <Links/>
             </TabItem>
             <TabItem title="Files">
-                <div class="p-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ex fugit minus quibusdam ullam! Accusantium, amet deserunt dicta distinctio ex ipsam laudantium praesentium quis suscipit ullam ut vero, voluptatem voluptatum.
-                </div>
+                <Files/>
             </TabItem>
             <TabItem title="Music">
                 <div class="p-4">
@@ -42,6 +37,7 @@ import TabItem from "@/Pages/Component/Tab/TabItem";
 import Chats from "@/Pages/Partials/Search/Chats";
 import Media from "@/Pages/Partials/Search/Media";
 import Links from "@/Pages/Partials/Search/Links/Links";
+import Files from "@/Pages/Partials/Search/Files/Files";
 export default {
     name: "Search",
     props: {
@@ -60,7 +56,7 @@ export default {
             }
         }
     },
-    components: {Links, Media, Chats, TabItem, Tab}
+    components: {Files, Links, Media, Chats, TabItem, Tab}
 }
 </script>
 

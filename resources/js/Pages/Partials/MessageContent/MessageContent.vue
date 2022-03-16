@@ -35,21 +35,22 @@
 
                 </div>
                 <div class="messages h-full flex-1 relative">
-                    <div class="absolute top-8 right-8 bottom-8 left-8  ">
-                        <div class="w-full h-96 relative">
-                            <div class="absolute w-[480px] h-full left-0 right-0 top-0 bottom-0 bg-white">
-
+                    <div class="w-full h-96 relative">
+                        <div class="relative">
+                            <div class="my-16 bg-white w-[378px]">
                                 <Tab>
-                                    <TabItem title="Test">
-                                        <Links/>
+                                    <TabItem title="Links">
+                                        <Files/>
                                     </TabItem>
-                                    <TabItem title="Title 1" v-for="n in 10">
-                                        <p v-for="i in n">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quam quos ut. Asperiores cumque dicta ea, exercitationem expedita facilis id in laboriosam necessitatibus neque perspiciatis quos rem reprehenderit sequi sunt.</p>
+                                    <TabItem title="Tab2">
+                                        This is Tab 2
                                     </TabItem>
                                 </Tab>
-
                             </div>
+
                         </div>
+<!--                        <span @click="downloadFile()" class="p-4 inline-block cursor-pointer my-4 bg-blue-700 text-white" > {{ (dl && dl.state==='LOADING') ? 'Cancel' : 'Download' }} {{progress}}</span>-->
+<!--                        {{dl ? dl.state : 'Not Started'}}-->
                     </div>
                 </div>
             </div>
@@ -82,13 +83,21 @@ import Tab from "@/Pages/Component/Tab/Tab";
 import TabItem from "@/Pages/Component/Tab/TabItem";
 import Search from "@/Pages/Partials/Search/Search";
 import Links from "@/Pages/Partials/Search/Links/Links";
+import Downloader from 'downloader-with-progress';
+import ProgressLoading from "@/Pages/Component/ProgressLoading";
+import Files from "@/Pages/Partials/Search/Files/Files";
+
 
 export default {
     name: "MessageContent",
-    components: {Links, Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
+    components: {
+        Files,
+        ProgressLoading,
+        Links, Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
     data() {
         return {
-            radioValue: '',
+            progress: 0,
+            dl: null,
 
             aside: '',
             showMenu: false,
@@ -155,6 +164,34 @@ export default {
                 },
             ]
         }
+    },
+    methods: {
+        downloadFile() {
+            let that = this;
+            console.log("Start Download")
+            // let url = '/uploads/medias/videos/2.mp4';
+            let url = 'http://cachefly.cachefly.net/100mb.test';
+            if(!this.dl) {
+                this.dl = new Downloader(url, 'move.mp4');
+                this.dl.onProgress((percent, loaded, total) => {
+                    console.log('percent: ' + percent, 'loaded: ' + loaded, 'total: ' + total);
+                    this.progress = percent;
+                })
+                .onChangeState((state) => {
+                    console.log('state', state);
+                })
+                .onFinish((blobUrl) => {
+                    // dl.save('filename.ext');
+                    console.log('finshed', blobUrl)
+                })
+                .start();
+            }
+            else {
+                this.dl.abort()
+            }
+        }
+    },
+    mounted() {
     }
 
 }

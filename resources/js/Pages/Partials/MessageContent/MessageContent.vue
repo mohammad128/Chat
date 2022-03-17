@@ -37,6 +37,13 @@
                 <div class="messages h-full flex-1 relative">
                     <div class="w-full h-96 relative">
                         <div class="relative">
+                            <audio id="track" src="http://upload.wikimedia.org/wikipedia/commons/a/a9/Tromboon-sample.ogg"
+                                   ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime) + ' / ' + Math.floor(this.duration);">
+                                <p>Your browser does not support the audio element</p>
+                            </audio>
+                            <span id="tracktime">0 / 0</span>
+                            <button onclick="document.getElementById('track').play();">Play</button>
+
                             <div class="my-16 bg-white w-[378px]">
                                 <Tab>
                                     <TabItem title="Links">

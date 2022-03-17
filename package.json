@@ -34,7 +34,7 @@
         "@fortawesome/vue-fontawesome": "^3.0.0-5",
         "@mdi/js": "^6.5.95",
         "@tailwindcss/line-clamp": "^0.3.1",
-        "downloader-with-progress": "^1.0.0",
+        "downloader-with-progress": "^1.0.2",
         "gsap": "^3.9.1",
         "mdi-vue": "^3.0.12",
         "v-wave": "^1.3.3",

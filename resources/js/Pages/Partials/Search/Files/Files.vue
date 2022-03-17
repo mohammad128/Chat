@@ -25,6 +25,17 @@ export default {
                 },
                 {
                     user: {
+                        id: 1,
+                        username: "name1"
+                    },
+                    filename: '100mb.test',
+                    time: '04:15 PM',
+                    size: '8 KB',
+                    src: 'http://cachefly.cachefly.net/100mb.test',
+                    type: 'zip'
+                },
+                {
+                    user: {
                         id: 2,
                         username: "name2"
                     },

@@ -66,7 +66,8 @@ export default {
         onChangeProgress() {
             var max = -219.99078369140625;
             let percent = this.value;//this.$refs.progress.getAttribute('data-progress');
-            this.$refs.progress.querySelector('.fill').setAttribute('style', 'stroke-dashoffset: ' + ((100 - percent) / 100) * max);
+            // this.$refs.progress.querySelector('.fill').setAttribute('style', 'stroke-dashoffset: ' + ((100 - percent) / 100) * max);
+            this.$refs.fill.style.strokeDashoffset= ((100 - percent) / 100) * max;
             this.$refs.fill.style.stroke= this.progressColor;
             this.$refs.fill.style.strokeWidth = this.progressWidth;
             this.$refs.track.style.strokeWidth = this.progressWidth;

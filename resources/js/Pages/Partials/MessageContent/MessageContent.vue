@@ -1,7 +1,7 @@
 <template>
         <AsideSwitcher v-model="aside">
             <div class="messageContent flex flex-col flex-1">
-                <div class="messageHeader w-full h-14 bg-white flex flex-row items-center px-4 justify-between">
+                <div class="messageHeader border-b border-b-gray-200 w-full h-14 bg-white flex flex-row items-center px-4 justify-between">
                     <div class="flex flex-row items-center gap-4 flex-1 cursor-pointer" @click="aside='aside2'">
                         <Avatar class="w-10 h-10" :src="'/uploads/avatars/1.jpeg'" :size="{w:42, h:42}"/>
                         <div class="flex flex-col ">
@@ -37,13 +37,7 @@
                 <div class="messages h-full flex-1 relative">
                     <div class="w-full h-96 relative">
                         <div class="relative">
-                            <audio id="track" src="http://upload.wikimedia.org/wikipedia/commons/a/a9/Tromboon-sample.ogg"
-                                   ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime) + ' / ' + Math.floor(this.duration);">
-                                <p>Your browser does not support the audio element</p>
-                            </audio>
-                            <span id="tracktime">0 / 0</span>
-                            <button onclick="document.getElementById('track').play();">Play</button>
-
+                            <TelegramMusicPlayer />
                             <div class="my-16 bg-white w-[378px]">
                                 <Tab>
                                     <TabItem title="Links">
@@ -93,11 +87,13 @@ import Links from "@/Pages/Partials/Search/Links/Links";
 import Downloader from 'downloader-with-progress';
 import ProgressLoading from "@/Pages/Component/ProgressLoading";
 import Files from "@/Pages/Partials/Search/Files/Files";
+import TelegramMusicPlayer from "@/Pages/Component/TelegramMusicPlayer/TelegramMusicPlayer";
 
 
 export default {
     name: "MessageContent",
     components: {
+        TelegramMusicPlayer,
         Files,
         ProgressLoading,
         Links, Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},

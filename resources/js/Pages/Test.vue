@@ -1,5 +1,4 @@
 <template>
-
     <div class="w-screen h-screen flex flex-row">
         <div class="w-[420px] h-full  relative">
             <PageSwitcher v-model="activePage">

@@ -35,11 +35,14 @@
 
                 </div>
                 <div class="messages h-full flex-1 relative">
-                    <div class="w-full h-96 relative">
+                    <div class="w-full h-96 relative ">
                         <div class="relative">
                             <TelegramMusicPlayer />
                             <div class="my-16 bg-white w-[378px]">
                                 <Tab>
+                                    <TabItem title="Music">
+                                        <Music/>
+                                    </TabItem>
                                     <TabItem title="Links">
                                         <Files/>
                                     </TabItem>
@@ -88,11 +91,13 @@ import Downloader from 'downloader-with-progress';
 import ProgressLoading from "@/Pages/Component/ProgressLoading";
 import Files from "@/Pages/Partials/Search/Files/Files";
 import TelegramMusicPlayer from "@/Pages/Component/TelegramMusicPlayer/TelegramMusicPlayer";
+import Music from "@/Pages/Partials/Search/Music/Music";
 
 
 export default {
     name: "MessageContent",
     components: {
+        Music,
         TelegramMusicPlayer,
         Files,
         ProgressLoading,

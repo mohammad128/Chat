@@ -112,7 +112,7 @@ export default {
 /* Style the checkmark/indicator */
 .wrapper .checkmark:after {
     left: 7px;
-    top: 0px;
+    top: 0;
     width: 7px;
     height: 15px;
     border: solid white;

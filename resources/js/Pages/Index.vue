@@ -1,6 +1,6 @@
 <template>
     <div class="w-full h-screen min-h-screen max-h-screen flex flex-row">
-        <div class="w-[420px] h-full">
+        <div class="w-[420px] h-full ">
             <SideBar/>
         </div>
         <div class="flex-1 h-full w-full bg-cover " style="background-image: url('/uploads/bg.jpeg')">

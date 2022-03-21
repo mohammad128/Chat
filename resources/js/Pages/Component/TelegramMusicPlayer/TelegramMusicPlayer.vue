@@ -77,7 +77,7 @@ export default {
                 this.currentTime = this.audio.currentTime;
                 this.loaded = true;
 
-                let inverval_id = setInterval(() => {
+                setInterval(() => {
                     this.currentTime = this.audio.currentTime;
                 }, 500);
             },

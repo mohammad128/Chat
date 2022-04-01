@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-white cursor-pointer" >
+    <div class="w-full bg-white cursor-pointer" v-if="musicPlayer.src"  >
         <div class="flex flex-col w-full" >
             <div class="w-full  flex flex-row items-center gap-4 px-4 py-1">
                 <div class="flex flex-row justify-center text-chatListActiveBg">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="flex flex-row gap-2">
                     <VolumeController v-model="volume" />
-                    <div class="">
+                    <div class="" @click="stopAudio()">
                         <span v-wave class="text-gray-600 rounded-full hover:bg-gray-100 transition duration-300 cursor-pointer w-[40px] h-[40px] flex justify-center items-center">
                             <mdicon name="close" size="24"/>
                         </span>
@@ -36,6 +36,8 @@
 <script>
 import VolumeController from "@/Pages/Component/TelegramMusicPlayer/VolumeController";
 import TimeLine from "@/Pages/Component/TelegramMusicPlayer/TimeLine";
+import {mapState} from 'vuex'
+
 export default {
     name: "TelegramMusicPlayer",
     components: {TimeLine, VolumeController},
@@ -45,9 +47,17 @@ export default {
             default: null,
         }
     },
+    computed: {
+        ...mapState(['musicPlayer']),
+        audio: {
+            get() {
+                return this.musicPlayer.audio;
+            }
+        }
+    },
     data() {
         return {
-            audio: null,
+            // audio: null,
             volume: 75,
             play: false,
             duration: 0,
@@ -57,35 +67,59 @@ export default {
             allow: true,
         }
     },
-    computed: {
-    },
     methods: {
     },
     mounted() {
         this.loaded = false;
-        this.audio = new Audio(
-            "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"
-        );
-        let that = this;
-        this.audio.addEventListener(
-            "loadeddata",
-            () => {
-                // console.log(this.duration);
-                // console.log(this.currentTime);
-                this.audio.volume = .75;
-                this.duration = this.audio.duration;
-                this.currentTime = this.audio.currentTime;
-                this.loaded = true;
-
-                setInterval(() => {
-                    this.currentTime = this.audio.currentTime;
-                }, 500);
-            },
-            false
-        );
+        // this.audio = new Audio(
+        //     "https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"
+        // );
+        // let that = this;
+        // this.audio.addEventListener(
+        //     "loadeddata",
+        //     () => {
+        //         // console.log(this.duration);
+        //         // console.log(this.currentTime);
+        //         this.audio.volume = .75;
+        //         this.duration = this.audio.duration;
+        //         this.currentTime = this.audio.currentTime;
+        //         this.loaded = true;
+        //
+        //         setInterval(() => {
+        //             this.currentTime = this.audio.currentTime;
+        //         }, 500);
+        //     },
+        //     false
+        // );
 
     },
     watch: {
+        musicPlayer: {
+            handler:function(newVal,oldVal){
+                if(this.audio) {
+                    this.play = this.musicPlayer.play;
+                    this.audio.addEventListener(
+                        "loadeddata",
+                        () => {
+                            // console.log(this.duration);
+                            // console.log(this.currentTime);
+                            this.audio.volume = .75;
+                            this.duration = this.audio.duration;
+                            this.currentTime = this.audio.currentTime;
+                            this.loaded = true;
+
+                            let intervalId = setInterval(() => {
+                                if(this.audio)
+                                    this.currentTime = this.audio.currentTime;
+                                else clearInterval(intervalId);
+                            }, 500);
+                        },
+                        false
+                    );
+                }
+            },
+            deep:true
+        },
         play(val){
             if(!this.loaded)
                 return;
@@ -94,6 +128,7 @@ export default {
             } else {
                 this.audio.pause();
             }
+            this.musicPlayer.play = val;
         },
         volume(val) {
             if(!this.loaded)

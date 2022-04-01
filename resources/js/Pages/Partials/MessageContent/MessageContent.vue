@@ -37,7 +37,8 @@
                 <div class="messages h-full flex-1 relative">
                     <div class="w-full h-96 relative ">
                         <div class="relative">
-                            <TelegramMusicPlayer />
+                            <TelegramMusicPlayer/>
+
                             <div class="my-16 bg-white w-[378px]">
                                 <Tab>
                                     <TabItem title="Music">
@@ -92,6 +93,7 @@ import ProgressLoading from "@/Pages/Component/ProgressLoading";
 import Files from "@/Pages/Partials/Search/Files/Files";
 import TelegramMusicPlayer from "@/Pages/Component/TelegramMusicPlayer/TelegramMusicPlayer";
 import Music from "@/Pages/Partials/Search/Music/Music";
+import {mapState} from "vuex";
 
 
 export default {
@@ -101,7 +103,11 @@ export default {
         TelegramMusicPlayer,
         Files,
         ProgressLoading,
-        Links, Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar},
+        Links, Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar
+    },
+    computed: {
+        ...mapState(['musicPlayer']),
+    },
     data() {
         return {
             progress: 0,
@@ -200,6 +206,14 @@ export default {
         }
     },
     mounted() {
+        setTimeout(
+            () => {
+                this.playAudio("https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3")
+            },
+            1000
+        )
+    },
+    watch: {
     }
 
 }

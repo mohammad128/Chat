@@ -9,6 +9,8 @@ import * as mdijs from '@mdi/js';
 import VWave from 'v-wave';
 import Popper from "vue3-popper";
 import 'vue-transitions-css';
+import store from '@/Store/store';
+
 
 import VueCarousel from '@chenfengyuan/vue-carousel';
 
@@ -30,6 +32,7 @@ createInertiaApp({
             })
             .component(VueCarousel.name, VueCarousel)
             .use(VWave)
+            .use(store)
             .mixin(globalMixin)
             .directive('click-outside', {
                 beforeMount(el, binding, vnode) {

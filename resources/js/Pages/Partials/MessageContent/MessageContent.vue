@@ -1,79 +1,53 @@
 <template>
-        <AsideSwitcher v-model="aside">
-            <div class="messageContent flex flex-col flex-1">
-                <div class="messageHeader border-b border-b-gray-200 w-full h-14 bg-white flex flex-row items-center px-4 justify-between">
-                    <div class="flex flex-row items-center gap-4 flex-1 cursor-pointer" @click="aside='aside2'">
-                        <Avatar class="w-10 h-10" :src="'/uploads/avatars/1.jpeg'" :size="{w:42, h:42}"/>
-                        <div class="flex flex-col ">
-                            <span class="font-bold text-gray-900">Speed Vpn</span>
-                            <span class="text-sm text-gray-400">last seen recently</span>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center">
-                        <button @click="aside = 'aside1'" v-wave class="bg-white rounded-full p-2 mr-2 text-gray-500 font-bold hover:bg-gray-100">
-                            <mdicon name="magnify"></mdicon>
-                        </button>
+    <div class="messageContainer w-full h-full max-h-screen flex flex-row">
+        <div class="messageContent flex flex-col w-full h-full">
 
-                        <Popper arrow offsetDistance="4"
-                                placement="left"
-                                @open:popper="showMenu=true"
-                                @close:popper="showMenu=false" >
-                            <button v-wave class="bg-white rounded-full p-2 text-gray-500 font-bold hover:bg-gray-100" @click="aside=''">
-                                <mdicon name="dots-vertical"></mdicon>
-                            </button>
-                            <template #content="{ close }">
-                                <transition name="scale-from-top-right">
-                                    <div class="-mr-10 mt-16" v-show="showMenu">
-                                        <div class="w-52">
-                                            <Menu :data="menuItems" />
-                                        </div>
-                                    </div>
-                                </transition>
-                            </template>
-                        </Popper>
+            <div class="messageHeader border-b border-b-gray-200 w-full h-14 bg-white flex flex-row items-center px-4 justify-between">
+                <div class="flex flex-row items-center gap-4 flex-1 cursor-pointer" @click="aside='aside2'">
+                    <Avatar class="w-10 h-10" :src="'/uploads/avatars/1.jpeg'" :size="{w:42, h:42}"/>
+                    <div class="flex flex-col ">
+                        <span class="font-bold text-gray-900">Speed Vpn</span>
+                        <span class="text-sm text-gray-400">last seen recently</span>
                     </div>
-
                 </div>
-                <div class="messages h-full flex-1 relative">
-                    <div class="w-full h-96 relative ">
-                        <div class="relative">
-                            <TelegramMusicPlayer/>
+                <div class="flex flex-row items-center">
+                    <button @click="aside = 'aside1'" v-wave class="bg-white rounded-full p-2 mr-2 text-gray-500 font-bold hover:bg-gray-100">
+                        <mdicon name="magnify"></mdicon>
+                    </button>
 
-                            <div class="my-16 bg-white w-[378px]">
-                                <Tab>
-                                    <TabItem title="Music">
-                                        <Music/>
-                                    </TabItem>
-                                    <TabItem title="Links">
-                                        <Files/>
-                                    </TabItem>
-                                    <TabItem title="Tab2">
-                                        This is Tab 2
-                                    </TabItem>
-                                </Tab>
-                            </div>
-
-                        </div>
-<!--                        <span @click="downloadFile()" class="p-4 inline-block cursor-pointer my-4 bg-blue-700 text-white" > {{ (dl && dl.state==='LOADING') ? 'Cancel' : 'Download' }} {{progress}}</span>-->
-<!--                        {{dl ? dl.state : 'Not Started'}}-->
-                    </div>
+                    <Popper arrow offsetDistance="4"
+                            placement="left"
+                            @open:popper="showMenu=true"
+                            @close:popper="showMenu=false" >
+                        <button v-wave class="bg-white rounded-full p-2 text-gray-500 font-bold hover:bg-gray-100" @click="aside=''">
+                            <mdicon name="dots-vertical"></mdicon>
+                        </button>
+                        <template #content="{ close }">
+                            <transition name="scale-from-top-right">
+                                <div class="-mr-10 mt-16" v-show="showMenu">
+                                    <div class="w-52">
+                                        <Menu :data="menuItems" />
+                                    </div>
+                                </div>
+                            </transition>
+                        </template>
+                    </Popper>
                 </div>
             </div>
 
-            <template #aside1>
-                <div class="messageAside bg-white border-l-2 border-gray-200 w-full">
-                    This is Aside 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis id suscipit! Ab accusamus aliquid blanditiis dolorum qui! Accusantium aut delectus facere numquam pariatur quidem vitae voluptatibus? Deserunt, id, quidem.
-                    This is Aside 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis id suscipit! Ab accusamus aliquid blanditiis dolorum qui! Accusantium aut delectus facere numquam pariatur quidem vitae voluptatibus? Deserunt, id, quidem.
-                    This is Aside 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur corporis id suscipit! Ab accusamus aliquid blanditiis dolorum qui! Accusantium aut delectus facere numquam pariatur quidem vitae voluptatibus? Deserunt, id, quidem.
-                </div>
-            </template>
-            <template #aside2>
-                <div class="messageAside bg-white border-l-2 border-gray-200 w-1/2">
-                    This is Aside 2
-                </div>
-            </template>
+            <TelegramMusicPlayer/>
 
-        </AsideSwitcher>
+            <div class="messages h-full flex flex-col flex-1 relative overflow-hidden">
+                <Messages/>
+                <div class="relative h-17 w-full pb-4 shrink-0 w-full max-w-3xl m-auto">
+                    <transition name="scale-fade">
+                        <WriteMessage v-if="!selectedMessages.length"/>
+                        <SelectedMessagesActions v-else/>
+                    </transition>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -94,11 +68,17 @@ import Files from "@/Pages/Partials/Search/Files/Files";
 import TelegramMusicPlayer from "@/Pages/Component/TelegramMusicPlayer/TelegramMusicPlayer";
 import Music from "@/Pages/Partials/Search/Music/Music";
 import {mapState} from "vuex";
+import WriteMessage from "@/Pages/Partials/MessageContent/WriteMessage";
+import Messages from "@/Pages/Partials/MessageContent/Messages/Messages";
+import SelectedMessagesActions from "@/Pages/Partials/MessageContent/SelectedMessagesActions";
 
 
 export default {
     name: "MessageContent",
     components: {
+        SelectedMessagesActions,
+        Messages,
+        WriteMessage,
         Music,
         TelegramMusicPlayer,
         Files,
@@ -106,7 +86,7 @@ export default {
         Links, Search, TabItem, Tab, Radio, RangeSlider, CheckBox, TextInput, AsideSwitcher, Menu, Avatar
     },
     computed: {
-        ...mapState(['musicPlayer']),
+        ...mapState(['musicPlayer','selectedMessages']),
     },
     data() {
         return {
@@ -206,12 +186,12 @@ export default {
         }
     },
     mounted() {
-        setTimeout(
-            () => {
+        // setTimeout(
+        //     () => {
                 this.playAudio("https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3")
-            },
-            1000
-        )
+        //     },
+        //     1000
+        // )
     },
     watch: {
     }
@@ -250,4 +230,6 @@ export default {
 .slider-vertical {
     margin: -30px auto 0;
 }
+
+
 </style>

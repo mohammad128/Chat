@@ -7,7 +7,8 @@ const store = createStore({
                 src: '',
                 play: false,
                 audio: null
-            }
+            },
+            selectedMessages: [],
         }
     },
     mutations: {
@@ -20,6 +21,10 @@ const store = createStore({
         deleteMusicPlayer(state) {
             state.musicPlayer.src = '';
             state.musicPlayer.audio = null;
+        },
+
+        setSelectedMessages(state, val) {
+            state.selectedMessages = val;
         }
     }
 })

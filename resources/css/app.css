@@ -2,6 +2,38 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.triangle-bottom-right{
+    position: relative;
+    border-bottom-right-radius: 0;
+}
+.triangle-bottom-right:after {
+    content: " ";
+    position: absolute;
+    right: -12px;
+    bottom: 0;
+    background: #FFF;
+    width: 16px;
+    height: 15px;
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    clip-path: polygon(25% 51%, 50% 74%, 76% 91%, 100% 100%, 0 100%, 0 0, 9% 23%);
+}
+.triangle-bottom-left{
+    position: relative;
+    border-bottom-left-radius: 0;
+}
+.triangle-bottom-left:after {
+    content: " ";
+    transform: rotate(270deg);
+    position: absolute;
+    left: -12px;
+    bottom: 0;
+    background: #FFF;
+    width: 16px;
+    height: 15px;
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    clip-path: polygon(25% 51%, 50% 74%, 76% 91%, 100% 100%, 0 100%, 0 0, 9% 23%);
+}
+
 .toast {
     position: fixed;
     left: 50%;
@@ -130,6 +162,25 @@
     100% {
         transform-origin: center;
         transform: scale(1);
+    }
+}
+
+.scale-fade-enter-active {
+    animation: scale-fade 0.25s ease-in-out;
+}
+.scale-fade-leave-active {
+    animation: scale-fade 0.25s ease-in-out reverse;
+}
+@keyframes scale-fade {
+    0% {
+        opacity: 0;
+        transform-origin: center;
+        transform: scaleX(.5);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: center;
+        transform: scaleX(1);
     }
 }
 

@@ -45,7 +45,6 @@ export default {
                     else if (w > this.maxWidth)
                         w = this.maxWidth;
                     this.progressWidth = w;
-                    console.log(this.progressWidth);
                 }
 
                 document.addEventListener('mousemove', handleMousemove);

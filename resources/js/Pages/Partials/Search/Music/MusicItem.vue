@@ -68,7 +68,7 @@ export default {
             if(this.play) {
                 this.audio.pause();
             } else  {
-                if( this.audio.src !== this.data.src )
+                if( this.musicPlayer.src !== this.data.src )
                     this.playAudio(this.data.src);
                 this.audio.play();
             }

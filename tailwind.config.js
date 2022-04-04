@@ -16,7 +16,13 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'chatListActiveBg': '#3390ec'
+                'chatListActiveBg': '#3390ec',
+                'light-green': '#eefade',
+            },
+            spacing: {
+                '13': '3.25rem',//52px
+                '17': '4.25rem',//52px
+                '120': '30rem', // 480px
             }
         },
     },

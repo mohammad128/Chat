@@ -1,7 +1,7 @@
 <template>
     <ElementSelector class="messages flex-1 w-full flex flex-col-reverse overflow-y-auto" v-model="selected">
         <ElementSelectorItem v-for="(message, index)  in messages" :key="index" :data-value="message">
-            <div class="p-4 w-full max-w-3xl m-auto flex"
+            <div class="py-1 px-4 w-full max-w-3xl m-auto flex"
                  :class="[message.user === 1  ? 'flex-row-reverse' : 'flex-row' ]"
             >
                 <div class="w-auto align-bottom max-w-[480px] p-3 select-text rounded-lg whitespace-pre-line ignore-select"
@@ -19,6 +19,8 @@
 import ElementSelector from "@/Pages/Component/ElementSelector/ElementSelector";
 import ElementSelectorItem from "@/Pages/Component/ElementSelector/ElementSelectorItem";
 import {mapState} from "vuex";
+import { LoremIpsum } from "lorem-ipsum";
+
 export default {
     name: "PrivateMessages",
     props: {
@@ -38,69 +40,39 @@ export default {
     data() {
         return {
             messages: [
-                {
-                    id: 1,
-                    message: 'Login code: 30311. Do not give this code to anyone, even if they say they are from Telegram!\n' +
-                        '\n' +
-                        'This code can be used to log in to your Telegram account. We never ask it for anything else.\n' +
-                        '\n' +
-                        'If you didn\'t request this code by trying to log in on another device, simply ignore this message.',
-                    time: '12:28 AM',
-                    user: 1
-                },
-                {
-                    id: 1,
-                    message: 'Login code: 30311. Do not give this code to anyone, even if they say they are from Telegram!\n' +
-                        '\n' +
-                        'This code can be used to log in to your Telegram account. We never ask it for anything else.\n' +
-                        '\n' +
-                        'If you didn\'t request this code by trying to log in on another device, simply ignore this message.',
-                    time: '11:18 AM',
-                    user: 1
-                },
-                {
-                    id: 1,
-                    message: 'Login code: 30311. Do not give this code to anyone, even if they say they are from Telegram!\n' +
-                        '\n' +
-                        'This code can be used to log in to your Telegram account. We never ask it for anything else.\n' +
-                        '\n' +
-                        'If you didn\'t request this code by trying to log in on another device, simply ignore this message.',
-                    time: '10:18 AM',
-                    user: 2
-                },
-                {
-                    id: 1,
-                    message: 'Login code: 30311. Do not give this code to anyone, even if they say they are from Telegram!\n' +
-                        '\n' +
-                        'This code can be used to log in to your Telegram account. We never ask it for anything else.\n' +
-                        '\n' +
-                        'If you didn\'t request this code by trying to log in on another device, simply ignore this message.',
-                    time: '09:18 AM',
-                    user: 1
-                },
-                {
-                    id: 1,
-                    message: 'Login code: 30311. Do not give this code to anyone, even if they say they are from Telegram!\n' +
-                        '\n' +
-                        'This code can be used to log in to your Telegram account. We never ask it for anything else.\n' +
-                        '\n' +
-                        'If you didn\'t request this code by trying to log in on another device, simply ignore this message.',
-                    time: '09:18 AM',
-                    user: 2
-                },
-                {
-                    id: 1,
-                    message: 'Login code: 30311. Do not give this code to anyone, even if they say they are from Telegram!\n' +
-                        '\n' +
-                        'This code can be used to log in to your Telegram account. We never ask it for anything else.\n' +
-                        '\n' +
-                        'If you didn\'t request this code by trying to log in on another device, simply ignore this message.',
-                    time: '09:18 AM',
-                    user: 2
-                },
             ]
         }
     },
+    mounted() {
+        let tmp = [];
+
+        const lorem = new LoremIpsum({
+            sentencesPerParagraph: {
+                max: 8,
+                min: 4
+            },
+            wordsPerSentence: {
+                max: 16,
+                min: 4
+            }
+        });
+
+        // console.log(lorem.generateWords(1));
+        console.log();
+        // console.log(lorem.generateParagraphs(7));
+
+        for (let i=0; i< 100; i++) {
+            tmp.push(
+                {
+                    id: i,
+                    message: lorem.generateSentences(Math.floor(Math.random()*3+1)),
+                    time: '12:28 AM',
+                    user: Math.floor(Math.random()*2+1)
+                }
+            )
+        }
+        this.messages = tmp;
+    }
 }
 </script>
 

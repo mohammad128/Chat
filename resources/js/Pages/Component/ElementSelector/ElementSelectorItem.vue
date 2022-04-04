@@ -1,6 +1,6 @@
 <template>
     <div class="w-full " :class="{'bg-green-600/10': checked}" @click="clickOnItem"  @mouseleave="onMouseleave($event)" @mouseenter="onMouseenter($event)">
-        <div class="element-selector-item p-4 w-full max-w-3xl m-auto flex flex-row">
+        <div class="element-selector-item w-full max-w-3xl m-auto flex flex-row">
             <transition name="scale">
             <span v-if="$parent.selected.length" class="shrink-0 ring w-5 h-5 flex justify-center self-end mb-4 items-center ring-white text-white p-1 rounded-full cursor-pointer transform duration-200"
                   :class="[checked ? 'bg-lime-600' : 'bg-transparent']"

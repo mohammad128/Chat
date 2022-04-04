@@ -184,6 +184,25 @@
     }
 }
 
+.scale-fade-from-bottom-left-enter-active {
+    animation: scale-fade-from-bottom-left 0.45s ease-in-out;
+}
+.scale-fade-from-bottom-left-leave-active {
+    animation: scale-fade-from-bottom-left 0.45s ease-in-out reverse;
+}
+@keyframes scale-fade-from-bottom-left {
+    0% {
+        opacity: 0;
+        transform-origin: bottom left;
+        transform: scale(.1);
+    }
+    100% {
+        opacity: 1;
+        transform-origin: bottom left;
+        transform: scale(1);
+    }
+}
+
 .fade-enter-active {
     animation: fade 0.25s ease-in-out;
 }

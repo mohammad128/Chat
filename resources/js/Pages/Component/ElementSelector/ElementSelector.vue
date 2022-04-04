@@ -66,7 +66,6 @@ export default {
     watch: {
         modelValue: {
             handler() {
-                console.log(this.$store.state.selectedMessages.length)
                 if (!this.$store.state.selectedMessages.length)
                     this.items.map(item=>item.checked=false)
             },

@@ -6,7 +6,7 @@
                 <div class="flex flex-row items-center gap-4 flex-1 cursor-pointer" @click="aside='aside2'">
                     <Avatar class="w-10 h-10" :src="'/uploads/avatars/1.jpeg'" :size="{w:42, h:42}"/>
                     <div class="flex flex-col ">
-                        <span class="font-bold text-gray-900">Speed Vpn</span>
+                        <span class="font-bold text-gray-900">MohammadJavadi</span>
                         <span class="text-sm text-gray-400">last seen recently</span>
                     </div>
                 </div>

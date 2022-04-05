@@ -164,7 +164,7 @@ export default {
             settingsListItem: [
                 {
                     icon: 'phone-outline',
-                    text: '+989363680395',
+                    text: '+989366666666',
                     sm_text: 'Phone',
                     action: (e, item) => {
                         this.copyToClipboard(item.text);

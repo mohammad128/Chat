@@ -1,5 +1,5 @@
 # Telegram UI
->** Telegram UI. with Vue3, TailwindCSS,**
+> Telegram UI. with Vue3, TailwindCSS
 
 ------------
 
